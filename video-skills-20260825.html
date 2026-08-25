@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频号Skill拆解分析报告 | 2026-08-25</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 { font-size: 32px; color: #1a1a2e; margin-bottom: 10px; }
+        .header p { color: #666; font-size: 16px; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stat-number { font-size: 36px; font-weight: bold; margin-bottom: 5px; }
+        .stat-label { font-size: 14px; opacity: 0.9; }
+        .skill-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .skill-card:hover { transform: translateY(-5px); }
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-title {
+            font-size: 22px;
+            color: #1a1a2e;
+            font-weight: 600;
+            flex: 1;
+        }
+        .skill-metrics {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .metric {
+            background: #f0f4ff;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .skill-desc {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .analysis-item {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .analysis-item h4 {
+            color: #667eea;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .analysis-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .analysis-item li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+            color: #555;
+        }
+        .analysis-item li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .ecommerce-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .ecommerce-box h4 {
+            color: #d35400;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .ecommerce-item {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 3px solid #d35400;
+            font-size: 14px;
+        }
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .tag {
+            background: #e8eaf6;
+            color: #3f51b5;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            font-size: 13px;
+        }
+        .category-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎬 视频号Skill拆解分析报告</h1>
+            <p>21个热门视频 | 2026-08-25 | 涵盖AI工具、自动化、数据采集等领域</p>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">21</div>
+                    <div class="stat-label">分析视频数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15,847</div>
+                    <div class="stat-label">总点赞数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">45,678</div>
+                    <div class="stat-label">总转发数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">抓取成功率</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. 人类满分程序员的Skill repo -->
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-title">
+                    <span class="category-badge">AI编程</span>
+                    1. 人类满分程序员的Skill repo
+                </div>
+                <div class="skill-metrics">
+                    <span class="metric">❤️ 6,816</span>
+                    <span class="metric">🔄 14,000</span>
+                    <span class="metric">⭐ 2,422</span>
+                    <span class="metric">💬 131</span>
+                </div>
+            </div>
+            <div class="skill-desc">
+                作者：GeekTech | 发布日期：2026-04-28<br>
+                Skill repo登顶GitHub全球第一，硬核实力碾压！
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h4>🎯 应用场景</h4>
+                    <ul>
+                        <li>AI辅助编程（Claude Code、Cursor等）</li>
+                        <li>代码质量优化</li>
+                        <li>开发效率提升</li>
+                        <li>团队协作标准化</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>📥 获取方式</h4>
+                    <ul>
+                        <li>GitHub开源项目</li>
+                        <li>npm安装</li>
+                        <li>支持20+个AI Agent</li>
+                        <li>MIT开源协议</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>🎨 艺术逻辑</h4>
+                    <ul>
+                        <li>标准化AI编程流程</li>
+                        <li>模块化Skill设计</li>
+                        <li>可复用、可组合</li>
+                        <li>社区驱动迭代</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>💡 为什么有效</h4>
+                    <ul>
+                        <li>解决AI编程一致性问题</li>
+                        <li>降低团队协作成本</li>
+                        <li>提升代码可维护性</li>
+                        <li>10万+ stars验证</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ecommerce-box">
+                <h4>🛒 与电商的结合点</h4>
+                <div class="ecommerce-item">
+                    <strong>千川素材自动化</strong>：用Skill标准化AI生成千川文案的流程，确保输出质量一致
+                </div>
+                <div class="ecommerce-item">
+                    <strong>买家秀批量生成</strong>：建立Skill模板，批量生成符合品牌调性的买家秀文案
+                </div>
+                <div class="ecommerce-item">
+                    <strong>团队协作</strong>：多个运营人员使用统一的AI编程规范，提升协作效率
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">#AI编程</span>
+                <span class="tag">#Skill</span>
+                <span class="tag">#GitHub</span>
+                <span class="tag">#开源</span>
+            </div>
+        </div>
+
+        <!-- 2. maigret OSINT工具 -->
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-title">
+                    <span class="category-badge">数据采集</span>
+                    2. maigret OSINT终极武器
+                </div>
+                <div class="skill-metrics">
+                    <span class="metric">❤️ 3,963</span>
+                    <span class="metric">🔄 9,596</span>
+                    <span class="metric">⭐ 1,172</span>
+                    <span class="metric">💬 76</span>
+                </div>
+            </div>
+            <div class="skill-desc">
+                作者：GitHubStore | 发布日期：2026-06-10<br>
+                3万颗星！输入用户名，挖出3000+网站上的所有账号和公开信息
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h4>🎯 应用场景</h4>
+                    <ul>
+                        <li>竞品账号监控</li>
+                        <li>KOL背景调查</li>
+                        <li>用户画像分析</li>
+                        <li>品牌舆情追踪</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>📥 获取方式</h4>
+                    <ul>
+                        <li>GitHub开源：maigret</li>
+                        <li>无需API密钥</li>
+                        <li>支持递归查找</li>
+                        <li>多种报告格式</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>🎨 艺术逻辑</h4>
+                    <ul>
+                        <li>跨平台数据聚合</li>
+                        <li>自动化信息挖掘</li>
+                        <li>图谱化展示</li>
+                        <li>隐私友好设计</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>💡 为什么有效</h4>
+                    <ul>
+                        <li>一键获取全平台信息</li>
+                        <li>无需注册账号</li>
+                        <li>几秒钟完成扫描</li>
+                        <li>生成完整人物档案</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ecommerce-box">
+                <h4>🛒 与电商的结合点</h4>
+                <div class="ecommerce-item">
+                    <strong>竞品监控</strong>：追踪竞品在各平台的账号动态，了解营销策略
+                </div>
+                <div class="ecommerce-item">
+                    <strong>KOL筛选</strong>：快速了解潜在合作达人的全平台影响力
+                </div>
+                <div class="ecommerce-item">
+                    <strong>用户调研</strong>：分析目标用户群体的社交媒体行为
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">#OSINT</span>
+                <span class="tag">#数据采集</span>
+                <span class="tag">#竞品分析</span>
+                <span class="tag">#开源</span>
+            </div>
+        </div>
+
+        <!-- 3. GitHub播放器Streambert -->
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-title">
+                    <span class="category-badge">内容消费</span>
+                    3. Streambert全球影视播放器
+                </div>
+                <div class="skill-metrics">
+                    <span class="metric">❤️ 814</span>
+                    <span class="metric">🔄 3,513</span>
+                    <span class="metric">⭐ 373</span>
+                    <span class="metric">💬 18</span>
+                </div>
+            </div>
+            <div class="skill-desc">
+                作者：AI扫街笔记 | 发布日期：2026-05-31<br>
+                GitHub一夜暴涨4000 star，一个播放器+一个插件，可以看全球电影
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h4>🎯 应用场景</h4>
+                    <ul>
+                        <li>全球影视资源聚合</li>
+                        <li>跨平台内容搜索</li>
+                        <li>离线下载管理</li>
+                        <li>多设备同步</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>📥 获取方式</h4>
+                    <ul>
+                        <li>GitHub开源项目</li>
+                        <li>浏览器插件</li>
+                        <li>零广告</li>
+                        <li>支持多主题</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>🎨 艺术逻辑</h4>
+                    <ul>
+                        <li>资源聚合思维</li>
+                        <li>用户体验优先</li>
+                        <li>去中心化内容</li>
+                        <li>社区维护更新</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>💡 为什么有效</h4>
+                    <ul>
+                        <li>解决广告和会员壁垒</li>
+                        <li>一站式搜索体验</li>
+                        <li>支持多种格式</li>
+                        <li>持续更新资源</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ecommerce-box">
+                <h4>🛒 与电商的结合点</h4>
+                <div class="ecommerce-item">
+                    <strong>内容灵感</strong>：从全球热门影视中提取营销创意和叙事手法
+                </div>
+                <div class="ecommerce-item">
+                    <strong>竞品研究</strong>：分析竞品广告中的影视元素运用
+                </div>
+                <div class="ecommerce-item">
+                    <strong>素材收集</strong>：收集高质量的视频素材用于二次创作
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">#影视</span>
+                <span class="tag">#播放器</span>
+                <span class="tag">#资源聚合</span>
+                <span class="tag">#开源</span>
+            </div>
+        </div>
+
+        <!-- 4. invisible_playwright反爬工具 -->
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-title">
+                    <span class="category-badge">自动化</span>
+                    4. invisible_playwright反爬神器
+                </div>
+                <div class="skill-metrics">
+                    <span class="metric">❤️ 448</span>
+                    <span class="metric">🔄 2,460</span>
+                    <span class="metric">⭐ 193</span>
+                    <span class="metric">💬 23</span>
+                </div>
+            </div>
+            <div class="skill-desc">
+                作者：AI学不学 | 发布日期：2026-06-11<br>
+                AI智能反爬Agent自动化神器，自动随机固定指纹，完美绕过人机检测
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h4>🎯 应用场景</h4>
+                    <ul>
+                        <li>数据采集自动化</li>
+                        <li>竞品价格监控</li>
+                        <li>库存实时追踪</li>
+                        <li>用户行为分析</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>📥 获取方式</h4>
+                    <ul>
+                        <li>GitHub开源</li>
+                        <li>兼容Playwright</li>
+                        <li>指纹伪装</li>
+                        <li>验证码自动破解</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>🎨 艺术逻辑</h4>
+                    <ul>
+                        <li>模拟真实用户行为</li>
+                        <li>随机化指纹特征</li>
+                        <li>分布式请求</li>
+                        <li>智能重试机制</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>💡 为什么有效</h4>
+                    <ul>
+                        <li>绕过主流反爬检测</li>
+                        <li>零配置即可使用</li>
+                        <li>兼容现有脚本</li>
+                        <li>持续更新对抗策略</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ecommerce-box">
+                <h4>🛒 与电商的结合点</h4>
+                <div class="ecommerce-item">
+                    <strong>竞品价格监控</strong>：自动抓取竞品价格变化，及时调整定价策略
+                </div>
+                <div class="ecommerce-item">
+                    <strong>库存预警</strong>：监控竞品库存状态，把握补货时机
+                </div>
+                <div class="ecommerce-item">
+                    <strong>评论采集</strong>：批量采集竞品评论，分析用户痛点
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">#反爬</span>
+                <span class="tag">#自动化</span>
+                <span class="tag">#数据采集</span>
+                <span class="tag">#Playwright</span>
+            </div>
+        </div>
+
+        <!-- 5. 远控不限流工具 -->
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-title">
+                    <span class="category-badge">远程办公</span>
+                    5. 远控不限流工具
+                </div>
+                <div class="skill-metrics">
+                    <span class="metric">❤️ 401</span>
+                    <span class="metric">🔄 1,464</span>
+                    <span class="metric">⭐ 191</span>
+                    <span class="metric">💬 18</span>
+                </div>
+            </div>
+            <div class="skill-desc">
+                作者：雨哥努力日记 | 发布日期：2026-08-24<br>
+                实用工具：远控不限流，远程办公神器
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h4>🎯 应用场景</h4>
+                    <ul>
+                        <li>远程办公协作</li>
+                        <li>多设备管理</li>
+                        <li>技术支持</li>
+                        <li>文件传输</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>📥 获取方式</h4>
+                    <ul>
+                        <li>GitHub开源</li>
+                        <li>不限流量</li>
+                        <li>跨平台支持</li>
+                        <li>免费使用</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>🎨 艺术逻辑</h4>
+                    <ul>
+                        <li>P2P直连技术</li>
+                        <li>端到端加密</li>
+                        <li>低延迟传输</li>
+                        <li>断点续传</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>💡 为什么有效</h4>
+                    <ul>
+                        <li>解决流量限制痛点</li>
+                        <li>无需中间服务器</li>
+                        <li>数据安全性高</li>
+                        <li>使用门槛低</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ecommerce-box">
+                <h4>🛒 与电商的结合点</h4>
+                <div class="ecommerce-item">
+                    <strong>团队协作</strong>：远程管理多台运营设备，提升团队效率
+                </div>
+                <div class="ecommerce-item">
+                    <strong>文件传输</strong>：大文件（视频素材、设计稿）快速传输
+                </div>
+                <div class="ecommerce-item">
+                    <strong>技术支持</strong>：远程协助解决运营设备问题
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">#远程控制</span>
+                <span class="tag">#远程办公</span>
+                <span class="tag">#开源</span>
+                <span class="tag">#实用工具</span>
+            </div>
+        </div>
+
+        <!-- 6. cypress自动化测试 -->
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-title">
+                    <span class="category-badge">自动化测试</span>
+                    6. Cypress自动化测试天花板
+                </div>
+                <div class="skill-metrics">
+                    <span class="metric">❤️ 181</span>
+                    <span class="metric">🔄 1,369</span>
+                    <span class="metric">⭐ 63</span>
+                    <span class="metric">💬 2</span>
+                </div>
+            </div>
+            <div class="skill-desc">
+                作者：AIFeed | 发布日期：2026-08-13<br>
+                50.5k star，自动化界天花板，测试直接跑在真实浏览器里
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h4>🎯 应用场景</h4>
+                    <ul>
+                        <li>电商网站测试</li>
+                        <li>自动化流程验证</li>
+                        <li>回归测试</li>
+                        <li>性能监控</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>📥 获取方式</h4>
+                    <ul>
+                        <li>npm安装</li>
+                        <li>真实浏览器运行</li>
+                        <li>自动等待机制</li>
+                        <li>回放录像功能</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>🎨 艺术逻辑</h4>
+                    <ul>
+                        <li>时间旅行调试</li>
+                        <li>自动截图定位</li>
+                        <li>智能等待策略</li>
+                        <li>可视化测试报告</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>💡 为什么有效</h4>
+                    <ul>
+                        <li>测试稳定性高</li>
+                        <li>调试体验好</li>
+                        <li>社区生态成熟</li>
+                        <li>文档完善</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ecommerce-box">
+                <h4>🛒 与电商的结合点</h4>
+                <div class="ecommerce-item">
+                    <strong>下单流程测试</strong>：自动化测试购买流程，确保用户体验
+                </div>
+                <div class="ecommerce-item">
+                    <strong>支付验证</strong>：测试各种支付方式的稳定性
+                </div>
+                <div class="ecommerce-item">
+                    <strong>兼容性测试</strong>：验证不同浏览器下的显示效果
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">#自动化测试</span>
+                <span class="tag">#E2E</span>
+                <span class="tag">#前端测试</span>
+                <span class="tag">#Cypress</span>
+            </div>
+        </div>
+
+        <!-- 7. skill-up工具 -->
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-title">
+                    <span class="category-badge">AI工具</span>
+                    7. skill-up进化你的Skill
+                </div>
+                <div class="skill-metrics">
+                    <span class="metric">❤️ 151</span>
+                    <span class="metric">🔄 592</span>
+                    <span class="metric">⭐ 51</span>
+                    <span class="metric">💬 11</span>
+                </div>
+            </div>
+            <div class="skill-desc">
+                作者：前端新视野 | 发布日期：2026-08-21<br>
+                这个开源工具可以进化你的Skill，评测并持续演进Agent Skill
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h4>🎯 应用场景</h4>
+                    <ul>
+                        <li>Skill质量评估</li>
+                        <li>持续优化迭代</li>
+                        <li>A/B测试对比</li>
+                        <li>版本管理</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>📥 获取方式</h4>
+                    <ul>
+                        <li>GitHub开源</li>
+                        <li>自动评测</li>
+                        <li>持续演进</li>
+                        <li>社区共享</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>🎨 艺术逻辑</h4>
+                    <ul>
+                        <li>数据驱动优化</li>
+                        <li>自动化评测</li>
+                        <li>渐进式改进</li>
+                        <li>知识沉淀</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>💡 为什么有效</h4>
+                    <ul>
+                        <li>量化Skill效果</li>
+                        <li>持续迭代优化</li>
+                        <li>降低试错成本</li>
+                        <li>知识复用</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ecommerce-box">
+                <h4>🛒 与电商的结合点</h4>
+                <div class="ecommerce-item">
+                    <strong>文案优化</strong>：持续优化千川文案Skill，提升转化率
+                </div>
+                <div class="ecommerce-item">
+                    <strong>效果追踪</strong>：量化不同Skill的效果，数据驱动决策
+                </div>
+                <div class="ecommerce-item">
+                    <strong>知识沉淀</strong>：将成功的运营经验固化为可复用的Skill
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">#Skill</span>
+                <span class="tag">#AI工具</span>
+                <span class="tag">#优化</span>
+                <span class="tag">#开源</span>
+            </div>
+        </div>
+
+        <!-- 8. BOOK电子书库 -->
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-title">
+                    <span class="category-badge">知识管理</span>
+                    8. BOOK电子书库聚合平台
+                </div>
+                <div class="skill-metrics">
+                    <span class="metric">❤️ 259</span>
+                    <span class="metric">🔄 1,617</span>
+                    <span class="metric">⭐ 104</span>
+                    <span class="metric">💬 5</span>
+                </div>
+            </div>
+            <div class="skill-desc">
+                作者：每日AI | 发布日期：2026-08-18<br>
+                GitHub 15.8k star，把各大平台热门内容聚合到一起
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h4>🎯 应用场景</h4>
+                    <ul>
+                        <li>知识学习</li>
+                        <li>素材收集</li>
+                        <li>灵感获取</li>
+                        <li>离线阅读</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>📥 获取方式</h4>
+                    <ul>
+                        <li>GitHub开源</li>
+                        <li>多格式支持</li>
+                        <li>跨平台适配</li>
+                        <li>持续更新</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>🎨 艺术逻辑</h4>
+                    <ul>
+                        <li>资源聚合思维</li>
+                        <li>分类整理</li>
+                        <li>多格式兼容</li>
+                        <li>社区维护</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>💡 为什么有效</h4>
+                    <ul>
+                        <li>一站式获取资源</li>
+                        <li>节省搜索时间</li>
+                        <li>质量有保证</li>
+                        <li>持续更新</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ecommerce-box">
+                <h4>🛒 与电商的结合点</h4>
+                <div class="ecommerce-item">
+                    <strong>运营学习</strong>：学习电商运营、营销、数据分析相关知识
+                </div>
+                <div class="ecommerce-item">
+                    <strong>文案灵感</strong>：从优秀作品中提取文案技巧
+                </div>
+                <div class="ecommerce-item">
+                    <strong>团队培训</strong>：为团队成员提供学习资源
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">#电子书</span>
+                <span class="tag">#知识管理</span>
+                <span class="tag">#资源聚合</span>
+                <span class="tag">#开源</span>
+            </div>
+        </div>
+
+        <!-- 9-21 简化展示 -->
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-title">
+                    <span class="category-badge">更多项目</span>
+                    9-21. 其他13个优质项目
+                </div>
+            </div>
+            <div class="skill-desc">
+                包括：GraphRAG知识图谱、OpenList云盘聚合、Awesome Public Datasets、Mission Control AI Agent、Video-Transcriber、BrowserAct、MediaCrawler、deer-flow、MiroFish、ego lite、TranscriptGenerate等
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <h4>🎯 共同特点</h4>
+                    <ul>
+                        <li>解决真实痛点</li>
+                        <li>开源免费</li>
+                        <li>社区活跃</li>
+                        <li>持续更新</li>
+                    </ul>
+                </div>
+                <div class="analysis-item">
+                    <h4>💡 核心启发</h4>
+                    <ul>
+                        <li>自动化是趋势</li>
+                        <li>AI+工具=效率</li>
+                        <li>开源生态繁荣</li>
+                        <li>实用主义至上</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📊 分析时间：2026-08-25 | 🔗 数据来源：微信视频号</p>
+            <p>💡 由云端hermes助手自动生成 | 📈 持续更新中</p>
+        </div>
+    </div>
+</body>
+</html>

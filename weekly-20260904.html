@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub周报 | 2026-09-04</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 { font-size: 28px; color: #1a1a2e; margin-bottom: 10px; }
+        .stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .stat-badge {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .repo-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .repo-card:hover { transform: translateY(-5px); }
+        .repo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .repo-title {
+            font-size: 20px;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+        .repo-title a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .repo-title a:hover { text-decoration: underline; }
+        .repo-stars {
+            background: #ffd700;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .repo-desc {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        .repo-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            color: #666;
+        }
+        .ecommerce-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .ecommerce-section h4 {
+            color: #d35400;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .ecommerce-item {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 3px solid #d35400;
+            font-size: 14px;
+        }
+        .topics {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .topic {
+            background: #e8eaf6;
+            color: #3f51b5;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔥 GitHub周报 | 2026-09-04</h1>
+            <p style="color: #666; margin-top: 10px;">本周GitHub增长最快的项目，结合电商场景分析</p>
+            <div class="stats">
+                <span class="stat-badge">📊 共 20 个项目</span>
+                <span class="stat-badge">🛒 电商相关 20 个</span>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    1. <a href="https://github.com/anthropics/commerce-agents" target="_blank">anthropics/commerce-agents</a>
+                </div>
+                <div class="repo-stars">⭐ 1,559</div>
+            </div>
+            <div class="repo-desc">Reference blueprint for building shopping and merchant agents with Claude. Examples in retail, commerce, telecom, and entertainment included.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 Python</div>
+                <div class="meta-item">📅 创建: 2026-09-01</div>
+                <div class="meta-item">🍴 Forks: 246</div>
+            </div>
+            <div class="topics">
+                
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    2. <a href="https://github.com/rakanki911/DLSS5-Swapper" target="_blank">rakanki911/DLSS5-Swapper</a>
+                </div>
+                <div class="repo-stars">⭐ 1,085</div>
+            </div>
+            <div class="repo-desc">DLSS 5 Swapper is a powerful, easy-to-use tool for installing, managing, and restoring DLSS 5 across games and supported emulators. It features automatic game detection, optional drive scanning, DLSS5-Feeder for compatible titles without native DLSS, emulator support, and compatibility with DirectX 9/10/11/12, Vulkan, and OpenGL.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 JavaScript</div>
+                <div class="meta-item">📅 创建: 2026-08-29</div>
+                <div class="meta-item">🍴 Forks: 49</div>
+            </div>
+            <div class="topics">
+                
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">通用技术工具，可提升开发效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    3. <a href="https://github.com/GangTailorUpgrade/undress-service" target="_blank">GangTailorUpgrade/undress-service</a>
+                </div>
+                <div class="repo-stars">⭐ 1,017</div>
+            </div>
+            <div class="repo-desc">Dress AI Sponsor</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 Python</div>
+                <div class="meta-item">📅 创建: 2026-08-31</div>
+                <div class="meta-item">🍴 Forks: 1</div>
+            </div>
+            <div class="topics">
+                <span class="topic">18comic</span><span class="topic">coomer</span><span class="topic">coomer-downloader</span><span class="topic">coomer-party</span><span class="topic">coomer-porn</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div><div class="ecommerce-item">内容生成工具可用于短视频/买家秀制作</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    4. <a href="https://github.com/shadcn-ui/cn" target="_blank">shadcn-ui/cn</a>
+                </div>
+                <div class="repo-stars">⭐ 959</div>
+            </div>
+            <div class="repo-desc">cn is a new engine for Tailwind class merging and conflict resolution. It replaces tailwind-merge and clsx. Same APIs. Full parity. And it is 30× faster.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 TypeScript</div>
+                <div class="meta-item">📅 创建: 2026-08-31</div>
+                <div class="meta-item">🍴 Forks: 7</div>
+            </div>
+            <div class="topics">
+                <span class="topic">clsx</span><span class="topic">cn</span><span class="topic">shadcn</span><span class="topic">tailwind-merge</span><span class="topic">tailwindcss</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    5. <a href="https://github.com/2akouwu/reverify" target="_blank">2akouwu/reverify</a>
+                </div>
+                <div class="repo-stars">⭐ 780</div>
+            </div>
+            <div class="repo-desc">Anti-hallucination for AI agents that read binaries. The model proposes, deterministic tools decide: every claim is VERIFIED or REFUTED against the real bytes, with evidence, and grounded facts survive context resets. MCP server + CLI.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 Python</div>
+                <div class="meta-item">📅 创建: 2026-08-31</div>
+                <div class="meta-item">🍴 Forks: 161</div>
+            </div>
+            <div class="topics">
+                <span class="topic">ai</span><span class="topic">ai-agents</span><span class="topic">anti-hallucination</span><span class="topic">binary-analysis</span><span class="topic">context-engineering</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    6. <a href="https://github.com/jlrouzies-fr/DLSS5-Feeder" target="_blank">jlrouzies-fr/DLSS5-Feeder</a>
+                </div>
+                <div class="repo-stars">⭐ 668</div>
+            </div>
+            <div class="repo-desc">DLSS 5 neural rendering in D3D11/D12/Vulkan games that ship without any DLSS — feeds a synthetic DLAA contract (ReShade depth + motion vectors) to the DLSS 5 add-on via a private D3D12 device.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 C++</div>
+                <div class="meta-item">📅 创建: 2026-08-29</div>
+                <div class="meta-item">🍴 Forks: 31</div>
+            </div>
+            <div class="topics">
+                
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">通用技术工具，可提升开发效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    7. <a href="https://github.com/sindresorhus/awesome" target="_blank">sindresorhus/awesome</a>
+                </div>
+                <div class="repo-stars">⭐ 502,728</div>
+            </div>
+            <div class="repo-desc">😎 Awesome lists about all kinds of interesting topics [NOTE: Pull requests are temporarily disabled until I have a chance to catch up with the existing ones]</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 None</div>
+                <div class="meta-item">📅 创建: 2014-07-11</div>
+                <div class="meta-item">🍴 Forks: 36,698</div>
+            </div>
+            <div class="topics">
+                <span class="topic">awesome</span><span class="topic">awesome-list</span><span class="topic">lists</span><span class="topic">resources</span><span class="topic">unicorns</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">通用技术工具，可提升开发效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    8. <a href="https://github.com/public-apis/public-apis" target="_blank">public-apis/public-apis</a>
+                </div>
+                <div class="repo-stars">⭐ 474,962</div>
+            </div>
+            <div class="repo-desc">A collective list of free APIs</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 Python</div>
+                <div class="meta-item">📅 创建: 2016-03-20</div>
+                <div class="meta-item">🍴 Forks: 52,473</div>
+            </div>
+            <div class="topics">
+                <span class="topic">api</span><span class="topic">apis</span><span class="topic">dataset</span><span class="topic">development</span><span class="topic">free</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">数据分析工具可用于电商数据洞察</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    9. <a href="https://github.com/freeCodeCamp/freeCodeCamp" target="_blank">freeCodeCamp/freeCodeCamp</a>
+                </div>
+                <div class="repo-stars">⭐ 454,971</div>
+            </div>
+            <div class="repo-desc">freeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer science for free.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 TypeScript</div>
+                <div class="meta-item">📅 创建: 2014-12-24</div>
+                <div class="meta-item">🍴 Forks: 46,111</div>
+            </div>
+            <div class="topics">
+                <span class="topic">careers</span><span class="topic">certification</span><span class="topic">community</span><span class="topic">curriculum</span><span class="topic">d3</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">通用技术工具，可提升开发效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    10. <a href="https://github.com/EbookFoundation/free-programming-books" target="_blank">EbookFoundation/free-programming-books</a>
+                </div>
+                <div class="repo-stars">⭐ 395,912</div>
+            </div>
+            <div class="repo-desc">:books: Freely available programming books</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 Python</div>
+                <div class="meta-item">📅 创建: 2013-10-11</div>
+                <div class="meta-item">🍴 Forks: 66,730</div>
+            </div>
+            <div class="topics">
+                <span class="topic">books</span><span class="topic">education</span><span class="topic">hacktoberfest</span><span class="topic">list</span><span class="topic">resource</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    11. <a href="https://github.com/openclaw/openclaw" target="_blank">openclaw/openclaw</a>
+                </div>
+                <div class="repo-stars">⭐ 388,782</div>
+            </div>
+            <div class="repo-desc">The AI that really does things. Any OS. Any Platform. The lobster way. 🦞 </div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 TypeScript</div>
+                <div class="meta-item">📅 创建: 2025-11-24</div>
+                <div class="meta-item">🍴 Forks: 81,644</div>
+            </div>
+            <div class="topics">
+                <span class="topic">ai</span><span class="topic">assistant</span><span class="topic">crustacean</span><span class="topic">molty</span><span class="topic">openclaw</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div><div class="ecommerce-item">数据分析工具可用于电商数据洞察</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    12. <a href="https://github.com/nilbuild/developer-roadmap" target="_blank">nilbuild/developer-roadmap</a>
+                </div>
+                <div class="repo-stars">⭐ 366,248</div>
+            </div>
+            <div class="repo-desc">Interactive roadmaps, guides and other educational content to help developers grow in their careers.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 TypeScript</div>
+                <div class="meta-item">📅 创建: 2017-03-15</div>
+                <div class="meta-item">🍴 Forks: 44,893</div>
+            </div>
+            <div class="topics">
+                <span class="topic">angular-roadmap</span><span class="topic">backend-roadmap</span><span class="topic">blockchain-roadmap</span><span class="topic">computer-science</span><span class="topic">dba-roadmap</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div><div class="ecommerce-item">内容生成工具可用于短视频/买家秀制作</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    13. <a href="https://github.com/vinta/awesome-python" target="_blank">vinta/awesome-python</a>
+                </div>
+                <div class="repo-stars">⭐ 318,068</div>
+            </div>
+            <div class="repo-desc">The definitive list that answers "I want to do X in Python, which tool should I use?"</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 Python</div>
+                <div class="meta-item">📅 创建: 2014-06-27</div>
+                <div class="meta-item">🍴 Forks: 28,631</div>
+            </div>
+            <div class="topics">
+                <span class="topic">awesome</span><span class="topic">awesome-list</span><span class="topic">python</span><span class="topic">python-frameworks</span><span class="topic">python-libraries</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">通用技术工具，可提升开发效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    14. <a href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank">awesome-selfhosted/awesome-selfhosted</a>
+                </div>
+                <div class="repo-stars">⭐ 317,000</div>
+            </div>
+            <div class="repo-desc">A list of Free Software network services and web applications which can be hosted on your own servers</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 None</div>
+                <div class="meta-item">📅 创建: 2015-06-01</div>
+                <div class="meta-item">🍴 Forks: 14,908</div>
+            </div>
+            <div class="topics">
+                <span class="topic">awesome</span><span class="topic">awesome-list</span><span class="topic">cloud</span><span class="topic">free-software</span><span class="topic">hosting</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">通用技术工具，可提升开发效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    15. <a href="https://github.com/practical-tutorials/project-based-learning" target="_blank">practical-tutorials/project-based-learning</a>
+                </div>
+                <div class="repo-stars">⭐ 282,001</div>
+            </div>
+            <div class="repo-desc">Curated list of project-based tutorials</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 Python</div>
+                <div class="meta-item">📅 创建: 2017-04-12</div>
+                <div class="meta-item">🍴 Forks: 36,129</div>
+            </div>
+            <div class="topics">
+                <span class="topic">beginner-project</span><span class="topic">cpp</span><span class="topic">golang</span><span class="topic">javascript</span><span class="topic">project</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">通用技术工具，可提升开发效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    16. <a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a>
+                </div>
+                <div class="repo-stars">⭐ 281,340</div>
+            </div>
+            <div class="repo-desc">An agentic skills framework & software development methodology that works.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 Shell</div>
+                <div class="meta-item">📅 创建: 2025-10-09</div>
+                <div class="meta-item">🍴 Forks: 25,203</div>
+            </div>
+            <div class="topics">
+                <span class="topic">ai</span><span class="topic">brainstorming</span><span class="topic">coding</span><span class="topic">obra</span><span class="topic">sdlc</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    17. <a href="https://github.com/react/react" target="_blank">react/react</a>
+                </div>
+                <div class="repo-stars">⭐ 249,062</div>
+            </div>
+            <div class="repo-desc">The library for web and native user interfaces.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 JavaScript</div>
+                <div class="meta-item">📅 创建: 2013-05-24</div>
+                <div class="meta-item">🍴 Forks: 51,271</div>
+            </div>
+            <div class="topics">
+                <span class="topic">declarative</span><span class="topic">frontend</span><span class="topic">javascript</span><span class="topic">library</span><span class="topic">react</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">通用技术工具，可提升开发效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    18. <a href="https://github.com/mattpocock/skills" target="_blank">mattpocock/skills</a>
+                </div>
+                <div class="repo-stars">⭐ 247,407</div>
+            </div>
+            <div class="repo-desc">Skills for Real Engineers. Straight from my .agents directory.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 Shell</div>
+                <div class="meta-item">📅 创建: 2026-02-03</div>
+                <div class="meta-item">🍴 Forks: 20,974</div>
+            </div>
+            <div class="topics">
+                
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    19. <a href="https://github.com/affaan-m/ECC" target="_blank">affaan-m/ECC</a>
+                </div>
+                <div class="repo-stars">⭐ 247,194</div>
+            </div>
+            <div class="repo-desc">The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 JavaScript</div>
+                <div class="meta-item">📅 创建: 2026-01-18</div>
+                <div class="meta-item">🍴 Forks: 37,250</div>
+            </div>
+            <div class="topics">
+                <span class="topic">ai-agents</span><span class="topic">anthropic</span><span class="topic">claude</span><span class="topic">claude-code</span><span class="topic">developer-tools</span>
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">AI工具可提升电商运营效率</div>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <div class="repo-header">
+                <div class="repo-title">
+                    20. <a href="https://github.com/torvalds/linux" target="_blank">torvalds/linux</a>
+                </div>
+                <div class="repo-stars">⭐ 246,524</div>
+            </div>
+            <div class="repo-desc">Linux kernel source tree</div>
+            <div class="repo-meta">
+                <div class="meta-item">💻 C</div>
+                <div class="meta-item">📅 创建: 2011-09-04</div>
+                <div class="meta-item">🍴 Forks: 64,299</div>
+            </div>
+            <div class="topics">
+                
+            </div>
+            <div class="ecommerce-section">
+                <h4>🛒 电商结合点</h4>
+                <div class="ecommerce-item">通用技术工具，可提升开发效率</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📊 生成时间：2026-09-04 09:00</p>
+            <p>💡 由云端hermes助手自动生成 | 🔗 每周五自动更新</p>
+        </div>
+    </div>
+</body>
+</html>
